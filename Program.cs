@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Transactions;
 
 namespace compare_algorithm
 {
@@ -8,21 +9,41 @@ namespace compare_algorithm
         {
             Random n = new Random();
             Stopwatch sw = new Stopwatch();
-
+            Console.WriteLine("enter an array please");
+            int ArraySize=Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter a new item size please");
+            int ItemSize=Convert.ToInt32(Console.ReadLine());
+            int[]array = CreateArray(ArraySize,n);
+           
 
         }
-        static int[] CreateArray(int size, Random r)
+        static int[] CreateArray(int size, int minimumvalue,int maximumvalue)
         {
-            
+           Random r = new Random();
+            int[] a = new int[size];
+            for (int i = 0;i<a.Length;++i)
+            {
+                a[i] = r.Next(minimumvalue,maximumvalue);
+            }
         }
         static void menu()
         {
-
+            Console.WriteLine("enter 1 for linear search");
+            Console.WriteLine("enter 2 for binary search");
+            Console.WriteLine("enter 3 for bubble search");
+            Console.WriteLine("enter 4 for merge search");
+            Console.WriteLine("enter 9 to quit");
+            int choice=Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter the size of the array please");
+            Console.WriteLine("enter your minimum value for array please");
+            int minimumvalue=Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter you maximum value for array please");
+            int maximumvalue=Convert.ToInt32(Console.ReadLine());
         }
-        
+
         static void BubbleSort(int[] a)
         {
-            
+
         }
         static void Merge(int[] a, int low, int mid, int high)
         {
@@ -80,12 +101,15 @@ namespace compare_algorithm
         }
         static bool LinearSearch(int[] a, int numToFind)
         {
-
+            Random r = new Random();
+            int n = r.Next(0, 1000000);
+            Console.WriteLine(n);
         }
         static bool BinarySearch(int[] a, int numToFind)
         {
-            
+
         }
-            
     }
-}
+
+            
+
