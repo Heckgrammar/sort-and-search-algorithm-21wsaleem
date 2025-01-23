@@ -15,7 +15,7 @@ namespace compare_algorithm
             int ItemSize = Convert.ToInt32(Console.ReadLine());
             //int[] array = CreateArray(ArraySize, n);
 
-            menu();
+            
         }
         static int[] CreateArray(int size, int minimumvalue, int maximumvalue)
         {
@@ -44,7 +44,7 @@ namespace compare_algorithm
 
         static void BubbleSort(int[] a)
         {
-            for (int i = 0;i<a.Length i++)
+            for (int i = 0;i<a.Length; i++)
             {
 
             }
@@ -122,10 +122,24 @@ namespace compare_algorithm
             }
 
 
-            //static bool BinarySearch(int[] a, int numToFind)
-            //{
-
-            //}
+            static bool BinarySearch(int[] a, int numToFind)
+            {
+                int lowerbound=0,upperbound=a.Length-1, mid;
+                while (lowerbound < upperbound)
+                {
+                    mid=(lowerbound+upperbound)/2;
+                    if (a[mid] == numToFind)
+                    {
+                        Console.WriteLine($"{numToFind}was found at index{mid}");
+                        return true;
+                    }
+                    else if (a[mid] > numToFind)
+                    {
+                        upperbound = mid-1;
+                    }
+                    else {  lowerbound = mid+1; }
+                }return false;
+            }
         }
     }
 }
